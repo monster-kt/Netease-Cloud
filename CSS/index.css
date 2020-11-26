@@ -1,0 +1,569 @@
+/**
+* @name: index
+* @author: surui
+* @date: 2020-11-22 10:54
+* @description：index
+* @update: 2020-11-22 10:54
+*/
+
+/* 侧边栏 */
+#wrapper {
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    padding-left: 0;
+    transition: all 0.5s ease;
+}
+#wrapper.toggled {
+    padding-left: 220px;
+}
+#wrapper.toggled #sidebar-wrapper {
+    width: 220px;
+}
+#wrapper.toggled #page-content-wrapper {
+    margin-right: -220px;
+    position: absolute;
+}
+#sidebar-wrapper {
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    background: #1a1a1a;
+    height: 100%;
+    left: 220px;
+    margin-left: -220px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: all 0.5s ease;
+    width: 0;
+    z-index: 1000;
+}
+#sidebar-wrapper::-webkit-scrollbar {
+    display: none;
+}
+#page-content-wrapper {
+    padding-top: 70px;
+    width: 100%;
+}
+
+/*  侧边栏主体   */
+.sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 220px;
+}
+.sidebar-nav li {
+    display: inline-block;
+    line-height: 20px;
+    position: relative;
+    width: 100%;
+}
+.sidebar-nav li:before {
+    background-color: #1c1c1c;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    -webkit-transition: width 0.2s ease-in;
+    transition: width 0.2s ease-in;
+    width: 3px;
+    z-index: -1;
+}
+.sidebar-nav li:first-child a {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 25px;
+}
+#sidebar-wrapper .dropdown .dropdown-menu a:hover{
+    background-color: transparent!important;
+    color:red;
+    z-index: 999999;
+}
+.sidebar-nav li:nth-child(2):before {
+    background-color: #402d5c;
+}
+.sidebar-nav li:nth-child(3):before {
+    background-color: #4c366d;
+}
+.sidebar-nav li:nth-child(4):before {
+    background-color: #583e7e;
+}
+.sidebar-nav li:nth-child(5):before {
+    background-color: #64468f;
+}
+.sidebar-nav li:nth-child(6):before {
+    background-color: #704fa0;
+}
+.sidebar-nav li:nth-child(7):before {
+    background-color: #7c5aae;
+}
+.sidebar-nav li:nth-child(8):before {
+    background-color: #8a6cb6;
+}
+.sidebar-nav li:nth-child(9):before {
+    background-color: #987dbf;
+}
+.sidebar-nav li:hover:before {
+    -webkit-transition: width 0.2s ease-in;
+    transition: width 0.2s ease-in;
+    width: 100%;
+}
+.sidebar-nav li a {
+    color: #dddddd;
+    display: block;
+    padding: 10px 15px 10px 30px;
+    text-decoration: none;
+}
+.sidebar-nav li.open:hover before {
+    -webkit-transition: width 0.2s ease-in;
+    transition: width 0.2s ease-in;
+    width: 100%;
+}
+.sidebar-nav .dropdown-menu {
+    background-color: #222222;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.sidebar-nav li a:hover,
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus,
+.sidebar-nav li.open a:hover,
+.sidebar-nav li.open a:active,
+.sidebar-nav li.open a:focus{
+    background-color: transparent!important;
+    color: #ffffff;
+    text-decoration: none;
+}
+.sidebar-nav > .sidebar-brand {
+    font-size: 20px;
+    height: 65px;
+    line-height: 44px;
+}
+/* 侧边栏按钮 */
+.hamburger {
+    background: transparent;
+    border: none;
+    display: block;
+    height: 32px;
+    margin-left: 15px;
+    position: fixed;
+    top: 10rem;
+    width: 32px;
+    z-index: 999;
+}
+.hamburger.is-closed:before {
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-transition: all 0.35s ease-in-out;
+    color: #ffffff;
+    content: '';
+    display: block;
+    font-size: 14px;
+    line-height: 32px;
+    opacity: 0;
+    text-align: center;
+    width: 100px;
+}
+.hamburger.is-closed:hover before {
+    -webkit-transform: translate3d(-100px, 0, 0);
+    -webkit-transition: all 0.35s ease-in-out;
+    display: block;
+    opacity: 1;
+}
+.hamburger.is-closed:hover .hamb-top {
+    -webkit-transition: all 0.35s ease-in-out;
+    top: 0;
+}
+.hamburger.is-closed:hover .hamb-bottom {
+    -webkit-transition: all 0.35s ease-in-out;
+    bottom: 0;
+}
+.hamburger.is-closed .hamb-top {
+    -webkit-transition: all 0.35s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.7);
+    top: 5px;
+}
+.hamburger.is-closed .hamb-middle {
+    background-color: rgba(255, 255, 255, 0.7);
+    margin-top: -2px;
+    top: 50%;
+}
+.hamburger.is-closed .hamb-bottom {
+    -webkit-transition: all 0.35s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.7);
+    bottom: 5px;
+}
+.hamburger.is-closed .hamb-top,
+.hamburger.is-closed .hamb-middle,
+.hamburger.is-closed .hamb-bottom,
+.hamburger.is-open .hamb-top,
+.hamburger.is-open .hamb-middle,
+.hamburger.is-open .hamb-bottom {
+    height: 4px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+.hamburger.is-open .hamb-top {
+    -webkit-transform: rotate(45deg);
+    -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.73, 1, 0.28, 0.08);
+    background-color: #ffffff;
+    margin-top: -2px;
+    top: 50%;
+}
+.hamburger.is-open .hamb-middle {
+    background-color: #ffffff;
+    display: none;
+}
+.hamburger.is-open .hamb-bottom {
+    -webkit-transform: rotate(-45deg);
+    -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.73, 1, 0.28, 0.08);
+    background-color: #ffffff;
+    margin-top: -2px;
+    top: 50%;
+}
+.hamburger.is-open:before {
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-transition: all 0.35s ease-in-out;
+    color: #ffffff;
+    content: '';
+    display: block;
+    font-size: 14px;
+    line-height: 32px;
+    opacity: 0;
+    text-align: center;
+    width: 100px;
+}
+.hamburger.is-open:hover before {
+    -webkit-transform: translate3d(-100px, 0, 0);
+    -webkit-transition: all 0.35s ease-in-out;
+    display: block;
+    opacity: 1;
+}
+
+header{
+    position: relative;
+    width: 100%;
+    height: 150px;
+    /*overflow: hidden;*/
+}
+header .logo {
+    position: absolute;
+    left: 4em;
+    top: 4em;
+    width: 100px;
+    height: 100px;
+    background: url("../PIC/logo.png") no-repeat;
+    background-size: 50px 50px;
+    transition: all 1s;
+    animation: rotate 2s linear infinite;
+    transform-origin: 25% 25%;
+}
+@keyframes rotate {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+header .time{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 8em;
+    height: 4em;
+    transform: translate(-30%,-50%);
+    color: #d9edf7;
+    /*color: black;*/
+    font-size: 28px;
+}
+header .login_win{
+    position: absolute;
+    right: 5em;
+    top: 4em;
+    width: 10em;
+    height: 10em;
+    /*border: 1px solid skyblue;*/
+    /*border-radius: 50%;*/
+    /*overflow: hidden;*/
+    text-align: center;
+}
+header .login_win img:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+    transition: 2s;
+}
+header .login_win img{
+    width: 5em;
+    height: 5em;
+    border-radius:50%
+}
+header:after{
+    content: "";
+}
+.dropdown{
+    position: absolute;
+    top: 50%;
+    right: 0;
+}
+.dropdown .dropdown-menu{
+    z-index: 999;
+}
+/*  主体文字 */
+article{
+    width: 80%;
+    height: 10em;
+    line-height: 4em;
+    margin: auto 2.5em;
+    font-size: 40px;
+    font-family: "su" !important;;
+    text-align: center;
+}
+article span{
+    border-bottom: 2px  solid #ffff;
+}
+.span{
+    animation: glow_in 3s both;
+}
+@keyframes glow_in {
+    from{
+        opacity: 0;
+    } 65%{
+        opacity: 1;
+        text-shadow: 0 0 1.5em;
+    }
+    75%{
+        opacity: 1;
+     }
+    to{
+        opacity: 0.7;
+    }
+}
+article #author{
+    float: right;
+    width: 4em;
+    height: 4em;
+    margin-top: 50px;
+}
+section{
+    width: 100%;
+    height: 6.25em;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+}
+section .btn{
+    position: relative;
+    color: deeppink !important;
+    width: 10em;
+    font-weight: 800;
+    transition:all .4s;
+    border-radius:20px;
+    text-align: center;
+}
+section .btn canvas{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.25;
+    border-radius: 10em;
+}
+section .btn:hover{
+    background-color: skyblue;
+    color: red;
+}
+section .btn:focus{
+    outline: 0;
+}
+section .btn:before,.btn:after{
+    position:absolute;
+    content:'';
+    display:block;
+    width:140%;
+    height:100%;
+    left:-20%;
+    z-index:-1000;
+    transition:all ease-in-out 0.5s;
+    background-repeat:no-repeat
+}
+section .btn:before{
+    display:none;
+    top:-75%;
+    background-image:radial-gradient(circle,#fff 20%,transparent 20%),
+    radial-gradient(circle,transparent 20%,#fff 20%,transparent 30%),
+    radial-gradient(circle,#fff 20%,transparent 20%),
+    radial-gradient(circle,#fff 20%,transparent 20%),
+    radial-gradient(circle,transparent 10%,#fff 15%,transparent 20%),
+    radial-gradient(circle,#fff 20%,transparent 20%),
+    radial-gradient(circle,#fff 20%,transparent 20%),
+    radial-gradient(circle,#fff 20%,transparent 20%),
+    radial-gradient(circle,#fff 20%,transparent 20%);
+    background-size:10% 10%,20% 20%,15% 15%,20% 20%,18% 18%,10% 10%,15% 15%,10% 10%,18% 18%
+}
+section .btn:after{
+    display:none;
+    bottom:-75%;
+    background-image:radial-gradient(circle,#fff 20%,transparent 20%),
+    radial-gradient(circle,#fff 20%,transparent 20%),
+    radial-gradient(circle,transparent 10%,#fff 15%,transparent 20%),
+    radial-gradient(circle,#fff 20%,transparent 20%),
+    radial-gradient(circle,#fff 20%,transparent 20%),
+    radial-gradient(circle,#fff 20%,transparent 20%),
+    radial-gradient(circle,#fff 20%,transparent 20%);
+    background-size:15% 15%,20% 20%,18% 18%,20% 20%,15% 15%,10% 10%,20% 20%
+}
+section .btn:active{
+    transform:scale(0.9);
+    background-color:#fff;
+    box-shadow:0 2px 25px rgba(112,128,144,0.5)
+}
+section .btn.animate:before{
+    display:block;
+    animation:topBubbles ease-in-out .5s forwards
+}
+section .btn.animate:after{
+    display:block;
+    animation:bottomBubbles ease-in-out .5s forwards
+}
+@keyframes topBubbles{
+    0%{
+        background-position:5% 90%,10% 90%,10% 90%,15% 90%,25% 90%,25% 90%,40% 90%,55% 90%,70% 90%
+    }
+    50%{
+        background-position:0 80%,0 20%,10% 40%,20% 0,30% 30%,22% 50%,50% 50%,65% 20%,90% 30%
+    }
+    100%{
+        background-position:0 70%,0 10%,10% 30%,20% -10%,30% 20%,22% 40%,50% 40%,65% 10%,90% 20%;
+        background-size:0 0,0 0,0 0,0 0,0 0,0 0
+    }
+}
+@keyframes bottomBubbles{
+    0%{
+        background-position:10% -10%,30% 10%,55% -10%,70% -10%,85% -10%,70% -10%,70% 0
+    }
+    50%{
+        background-position:0 80%,20% 80%,45% 60%,60% 100%,75% 70%,95% 60%,105% 0
+    }
+    100%{
+        background-position:0 90%,20% 90%,45% 70%,60% 110%,75% 80%,95% 70%,110% 10%;
+        background-size:0 0,0 0,0 0,0 0,0 0,0 0
+    }
+}
+
+section .glyphicon{
+    width: 3em;
+    height: 3em;
+    font-size: 18px;
+    text-align: center;
+    line-height: 3em;
+}
+footer{
+    width: 100%;
+    font-size: 18px;
+    margin: 0 auto;
+    text-align: center;
+}
+footer p a{
+    transition: all .4s;
+}
+footer p a:hover{
+    text-decoration: none;
+    color: deepskyblue;
+}
+footer p em{
+    margin: auto 1em;
+}
+
+/* 模态框 */
+.login_form{
+    display: none;
+    width: 32em;
+    height: 17.5em;
+    position: fixed;
+    border: #ebebeb solid 1px;
+    left: 50%;
+    top: 50%;
+    background: #FFF9F9;
+    box-shadow: 0 0 2.5em #ddd;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    font-family: su;
+}
+.login_form a{
+    text-decoration: none;
+    color: #210000;
+}
+.login_form .title{
+    position: relative;
+    height: 2.5em;
+    margin: 1.2em auto;
+    line-height: 2.5em;
+    text-align: center;
+    font-size: 18px;
+}
+.login_form .title a{
+    position: absolute;
+    right: 0;
+    top: -2.5em;
+}
+.login_input{
+    width: 100%;
+    height: 4em;
+    margin-top: 1em;
+    text-align: center;
+}
+.login_input  .login_content{
+    margin: 0 0 20px 0;
+    width: 100%;
+}
+.login_input  .login_content input{
+    width: 10em;
+}
+.login_btn{
+    width: 50%;
+    margin: 2em auto 0 auto;
+    line-height: 2.5em;
+    font-size: 14px;
+    border: #ebebeb 1px solid;
+    text-align: center;
+}
+.login-button-submit{
+    color: black;
+}
+.go_register{
+    width: 100%;
+    height: 2em;
+    margin-top: 1em;
+    line-height: 2em;
+    text-align: right;
+    font-size: 10px;
+}
+.login_hidden{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .4);
+}
+.music{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: darkred;
+}
+.music audio{
+    z-index: -1;
+}

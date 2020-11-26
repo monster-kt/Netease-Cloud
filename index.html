@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-sclae=1.0">
+    <title>网抑云~将自己释放</title>
+    <!--  引入title图标  -->
+    <link rel="icon" href="PIC/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="PIC/favicon.ico" type="image/x-icon">
+    <!-- 引入响应式css-->
+    <link rel="stylesheet" href="CSS/bootstrap3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/bootstrap3.3.7/css/bootstrap-theme.min.css">
+    <!--  全局样式  -->
+    <link rel="stylesheet" href="CSS/rest.css">
+    <link rel="stylesheet" href="CSS/index.css">
+    <!-- 全局js-->
+    <script src="JS/animate.js"></script>
+    <script src="JS/function.js"></script>
+    <script src="JS/index.js"> </script>
+    <script src="JS/prefixfree.min.js"> </script>
+    <!--响应式框架js-->
+    <script rel="stylesheet" src="JQ/jquery-3.3.1.min.js"></script>
+    <script src="CSS/bootstrap3.3.7/js/bootstrap.min.js"> </script>
+    <script src="JQ/jquery.ripples.js"></script>
+</head>
+<body>
+      <!--头部  -->
+      <header>
+          <div class="logo">
+          </div>
+          <div class="time">
+          </div>
+          <!-- 登陆接口-->
+          <div class="login_win">
+              <div class="img-circle">
+                <img src="PIC/via.jpg" alt="via">
+              </div>
+              <div class="dropdown pull-right">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <span id="selectMenus">在线</span>
+                      <span class="caret"></span>
+                      <input type="hidden" name="names" id="names" value="" />
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dLabel">
+                      <li><a href="#">忙碌</a></li>
+                      <li><a href="#">丧</a></li>
+                      <li><a href="#">等一个有缘人</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a href="HTML/logout.html"> 退出 </a></li>
+                  </ul>
+              </div>
+          </div>
+      </header>
+
+      <section id="wrapper">
+          <!-- 侧边栏 -->
+          <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+              <ul class="nav sidebar-nav">
+                  <li>
+                      <a href="#"><i class="fa fa-fw"></i> menu </a>
+                  </li>
+                  <li>
+                      <a href="#"><i class="fa f"></i> 我的消息 </a>
+                  </li>
+                  <li>
+                      <a href="#"><i class="fa"></i> 我的收藏 </a>
+                  </li>
+                  <li>
+                      <a href="#"><i class="fa"></i>我的金句</a>
+                  </li>
+                  <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                          <i class="fa fa-fw fa-plus"></i> 个人中心 <span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu" role="menu">
+                          <li class="dropdown-header">个人中心</li>
+                          <li><a href="#" id="dropdown_one">个人主页</a></li>
+                          <li><a href="#" id="dropdown_two">更改头像</a></li>
+                          <li><a href="#" id="dropdown_three">更改状态</a></li>
+                          <li><a href="#" id="dropdown_four">安全退出</a></li>
+                      </ul>
+                  </li>
+              </ul>
+          </nav>
+          <!-- 按钮 -->
+          <div id="page-content-wrapper">
+              <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas">
+                  <span class="hamb-top"></span>
+                  <span class="hamb-middle"></span>
+                  <span class="hamb-bottom"></span>
+              </button>
+          </div>
+          <!-- /#page-content-wrapper -->
+      </section>
+
+      <!-- content   -->
+      <article class="w">
+          <span id="text">人在饿的时候会选择不爱的食物，会在寂寞的时候选择不爱的人。因为强扭的瓜不甜，但是解渴。</span>
+          <p id="author">ksr</p>
+      </article>
+      <section class="w">
+          <button class="btn">
+              再来一句
+          </button>
+          <span class="glyphicon glyphicon-heart" ></span>
+          <button class="btn" id="btn" onclick="copy()">
+              复制
+          </button>
+      </section>
+      <!--  音乐接口   -->
+      <div class="music">
+          <audio autoplay loop  src="xi.mp3" >
+          </audio>
+      </div>
+      <!-- footer   -->
+      <footer class="w">
+          <p><a href="HTML/comment.html">查看评论</a></p>
+          <p><a href="#">提交新的句子</a></p>
+          <p><a href="#">用法</a></p>
+          <p style="font-size: 10px">版权所有<em>©</em>thk&ksr</p>
+      </footer>
+      <!--模态框-->
+      <form action="" method="post" enctype="multipart/form-data" class="login_form">
+          <div class="title">
+              登陆到网易云
+              <span> <a href="#"><i class="glyphicon glyphicon-remove"></i></a></span>
+          </div>
+          <div class="login_input">
+              <div class="login_content"> 用&nbsp;户&nbsp;名&nbsp;：<input type="tel" name="username" id="username" autocomplete="off"></div>
+              <div class="login_content"> 登陆密码：<input type="password" name="password" id="password" autocomplete="off"></div>
+          </div>
+          <div class="login_btn">
+              <a href="#" id="login-button-submit">登录会员</a>
+          </div>
+          <div class="go_register">
+              <a href="#"> 啊咧~没有账号，去注册~</a>
+          </div>
+      </form>
+      <div class="login_hidden"></div>
+      <script type="text/javascript">
+          $(document).ready(function () {
+              var trigger = $('.hamburger'),
+                  overlay = $('.overlay'),
+                  isClosed = false;
+
+              trigger.click(function () {
+                  hamburger_cross();
+              });
+
+              function hamburger_cross() {
+
+                  if (isClosed == true) {
+                      overlay.hide();
+                      trigger.removeClass('is-open');
+                      trigger.addClass('is-closed');
+                      isClosed = false;
+                  } else {
+                      overlay.show();
+                      trigger.removeClass('is-closed');
+                      trigger.addClass('is-open');
+                      isClosed = true;
+                  }
+              }
+
+              $('[data-toggle="offcanvas"]').click(function () {
+                  $('#wrapper').toggleClass('toggled');
+              });
+          });
+      </script>
+</body>
+</html>
